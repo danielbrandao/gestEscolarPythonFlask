@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Adicionar Nota</title>
+</head>
+<body>
+    <h1>Adicionar Nota</h1>
+    <form method="post">
+        Aluno:
+        <select name="id_aluno">
+            {% for aluno in alunos %}
+            <option value="{{ aluno.id }}">{{ aluno.nome }}</option>
+            {% endfor %}
+        </select><br>
+        Disciplina: <input type="text" name="disciplina"><br>
+        Nota: <input type="text" name="nota"><br>
+        <button type="submit">Salvar</button>
+    </form>
+</body>
+</html>

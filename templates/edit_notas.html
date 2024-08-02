@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Editar Nota</title>
+</head>
+<body>
+    <h1>Editar Nota</h1>
+    <form method="post">
+        Aluno:
+        <select name="student_id">
+            {% for student in students %}
+            <option value="{{ student.id }}" {% if grade.student_id == student.id %}selected{% endif %}>{{ student.name }}</option>
+            {% endfor %}
+        </select><br>
+        Matéria: <input type="text" name="subject" value="{{ grade.subject }}"><br>
+        Nota: <input type="text" name="grade" value="{{ grade.grade }}"><br>
+        <button type="submit">Salvar</button>
+    </form>
+</body>
+</html>
