@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Listagem de Notas</title>
+</head>
+<body>
+    <h1>Listagem de Notas</h1>
+    <a href="{{ url_for('add_nota') }}">Adicionar Nota</a>
+    <ul>
+        {% for nota in notas %}
+        <li>
+            Aluno: {{ nota.aluno.nome }} - Matéria: {{ nota.disciplina }} - Nota: {{ nota.nota }} - Status: {{ nota.status }}
+            <a href="{{ url_for('edit_nota', id=nota.id) }}">Editar</a>
+            <form action="{{ url_for('delete_nota', id=nota.id) }}" method="post" style="display:inline;">
+                <button type="submit">Excluir</button>
+            </form>
+        </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
